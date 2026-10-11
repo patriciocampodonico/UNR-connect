@@ -21,4 +21,6 @@ Está pensado para verse en un celular. En la pantalla de acceso se puede ingres
 
 ## Aclaración
 
-Es un prototipo académico. Los nombres, horarios, recorridos, costos y el mapa son datos de demostración: no están conectados a ningún sistema real.
+Es un prototipo académico. Los nombres, horarios, costos, grupos y datos de seguridad son de demostración: no están conectados a ningún sistema real.
+
+El mapa de Transbordos usa las calles reales de Rosario y los tiempos de caminata se calcularon sobre ellas. Datos del mapa: © OpenStreetMap contributors, bajo licencia ODbL (https://www.openstreetmap.org/copyright).
