@@ -696,21 +696,9 @@ var V={screen:'login',cfgMode:'init',lineIdx:0,elapsed:0,meetOn:false,meetLeft:4
 var TICK=20000; /* 1 "minuto" de demo = 20 s reales, para que el timer se vea vivo */
 var FARE=9200, KEY='unr-connect-demo-v2';
 
-/* ---------- persistencia local (solo en este navegador) ---------- */
-function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
-(function load(){
-  try{
-    var d=JSON.parse(localStorage.getItem(KEY)||'null'); if(!d) return;
-    if(POLOS[d.polo]){S.polo=d.polo; if(POLOS[d.polo].facs.indexOf(d.fac)>=0) S.fac=d.fac; else S.fac=POLOS[d.polo].facs[0]; if(POLOS[d.polo].stops.indexOf(d.parada)>=0) S.parada=d.parada; else S.parada=POLOS[d.polo].stops[0];}
-    if(Array.isArray(d.lines)) S.lines=d.lines.filter(function(l){return LINES[l]});
-    if(DESTS[d.dest]) S.dest=d.dest;
-    if(Array.isArray(d.groups)&&d.groups.length>=3) S.groups=d.groups;
-    if(typeof d.group==='number'&&d.group<S.groups.length) S.group=d.group;
-    S.joined=!!d.joined;
-    if(d.prefs) Object.keys(S.prefs).forEach(function(k){if(typeof d.prefs[k]==='boolean') S.prefs[k]=d.prefs[k]});
-    if(d.stage==='app'||d.stage==='config') S.stage=d.stage;
-  }catch(e){}
-})();
+/* ---------- demo: no se guarda nada; cada vez que se abre arranca de cero en el Acceso ---------- */
+function save(){}
+try{localStorage.removeItem(KEY);}catch(e){}
 
 /* ---------- navegación ---------- */
 var app=$('#app'), TABMAP={home:'home',meeting:'home',transfers:'transfers',shared:'shared',profile:'profile'};
